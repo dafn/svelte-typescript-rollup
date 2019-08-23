@@ -1,2 +1,13 @@
 # svelte-typescript
-Svelte with typescript using rollup
+
+Boilerplate example of Svelte with Typescript using Rollup
+
+Start development server
+```
+yarn serve
+```
+
+Build for production
+```
+yarn build
+```

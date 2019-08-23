@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "baseUrl": "./",
+    "outDir": "./build"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
