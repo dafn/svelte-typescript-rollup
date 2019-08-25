@@ -1,6 +1,6 @@
-# svelte-typescript
+# svelte-typescript-rollup
 
-Boilerplate example of Svelte with Typescript using Rollup
+Minimal boilerplate example of Svelte with Typescript using Rollup
 
 Start development server
 ```
