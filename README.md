@@ -1,13 +1,18 @@
-# svelte-typescript-rollup
+# svelte-typescript-parcel
 
-Minimal boilerplate example of Svelte with Typescript using Rollup
+Minimal boilerplate example of Svelte with Typescript using Parcel
+
+Install packages
+```bash
+$ yarn
+```
 
 Start development server
-```
-yarn serve
+```bash
+$ yarn serve
 ```
 
 Build for production
-```
-yarn build
+```bash
+$ yarn build
 ```

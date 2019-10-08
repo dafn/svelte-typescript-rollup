@@ -8,13 +8,13 @@ import typescript from "rollup-plugin-typescript2"
 import typescriptCompiler from "typescript"
 import { terser } from "rollup-plugin-terser"
 import livereload from "rollup-plugin-livereload"
-import { preprocess as svelteTsPreprocess } from "svelte-ts-preprocess"
+import sveltePreprocessor from "svelte-preprocess"
 
 const plugins = [
   svelte({
     dev: process.env.NODE_ENV === "development",
     extensions: [".svelte"],
-    preprocess: svelteTsPreprocess(),
+    preprocess: sveltePreprocessor(),
   }),
   html({
     template: "src/index.html",
