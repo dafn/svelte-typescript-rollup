@@ -1,6 +1,6 @@
-# svelte-typescript-parcel
+# svelte-typescript-rollup
 
-Minimal boilerplate example of Svelte with Typescript using Parcel
+Minimal boilerplate example of Svelte with Typescript using Rollup
 
 Install packages
 ```bash
