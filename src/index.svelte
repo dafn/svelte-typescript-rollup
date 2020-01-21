@@ -4,7 +4,7 @@
     c: string = "Rollup";
 </script>
 
-<style>
+<style lang="scss">
   :global(body) {
     display: flex;
     justify-content: center;

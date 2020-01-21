@@ -1,6 +1,7 @@
-# svelte-typescript-rollup
+# Svelte + Typescript + Rollup
 
-Minimal boilerplate example of Svelte with Typescript using Rollup
+Minimal boilerplate example of Svelte with Typescript using Rollup.
+This also includes SCSS support
 
 Install packages
 ```bash

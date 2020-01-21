@@ -3,7 +3,7 @@ import commonjs from "rollup-plugin-commonjs"
 import resolve from "rollup-plugin-node-resolve"
 import serve from "rollup-plugin-serve"
 import html from "rollup-plugin-bundle-html"
-import css from "rollup-plugin-css-porter"
+import postcss from "rollup-plugin-postcss"
 import typescript from "rollup-plugin-typescript2"
 import typescriptCompiler from "typescript"
 import { terser } from "rollup-plugin-terser"
@@ -15,15 +15,15 @@ const plugins = [
     dev: process.env.NODE_ENV === "development",
     extensions: [".svelte"],
     preprocess: sveltePreprocessor(),
+    emitCss: true,
   }),
   html({
     template: "src/index.html",
     dest: "dist",
     filename: "index.html"
   }),
-  css({
-    dest: 'dist/index.css',
-    raw: false
+  postcss({
+    extract: true
   }),
   typescript({ typescript: typescriptCompiler }),
   commonjs({ include: "node_modules/**" }),
