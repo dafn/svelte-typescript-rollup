@@ -1,44 +1,43 @@
-import svelte from "rollup-plugin-svelte"
-import commonjs from "rollup-plugin-commonjs"
-import resolve from "rollup-plugin-node-resolve"
-import serve from "rollup-plugin-serve"
-import html from "rollup-plugin-bundle-html"
-import postcss from "rollup-plugin-postcss"
-import typescript from "rollup-plugin-typescript2"
-import typescriptCompiler from "typescript"
-import { terser } from "rollup-plugin-terser"
-import livereload from "rollup-plugin-livereload"
-import sveltePreprocessor from "svelte-preprocess"
+import typescript from "@rollup/plugin-typescript";
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
+import html2 from "rollup-plugin-html2";
+import svelte from "rollup-plugin-svelte";
+import serve from "rollup-plugin-serve";
+import postcss from "rollup-plugin-postcss";
+import { terser } from "rollup-plugin-terser";
+import livereload from "rollup-plugin-livereload";
+import sveltePreprocessor from "svelte-preprocess";
+
+const isDevelopment = process.env.NODE_ENV === "development";
 
 const plugins = [
   svelte({
-    dev: process.env.NODE_ENV === "development",
+    dev: isDevelopment,
     extensions: [".svelte"],
     preprocess: sveltePreprocessor(),
     emitCss: true,
   }),
-  html({
-    template: "src/index.html",
-    dest: "dist",
-    filename: "index.html"
-  }),
   postcss({
-    extract: true
+    extract: true,
   }),
-  typescript({ typescript: typescriptCompiler }),
-  commonjs({ include: "node_modules/**" }),
-  resolve()
+  typescript(),
+  commonjs({ include: "node_modules/**", extensions: [".js", ".ts"] }),
+  resolve(),
+  html2({
+    template: "src/index.html",
+  }),
 ];
-if (process.env.NODE_ENV === "development") {
+if (isDevelopment) {
   plugins.push(
     serve({
-      contentBase: './dist',
-      open: false
+      contentBase: "./dist",
+      open: false,
     }),
     livereload({ watch: "./dist" })
   );
 } else {
-  plugins.push(terser({ sourcemap: true }))
+  plugins.push(terser({ sourcemap: true }));
 }
 
 module.exports = {
@@ -46,7 +45,7 @@ module.exports = {
   output: {
     file: "dist/index.js",
     sourcemap: true,
-    format: "iife"
+    format: "iife",
   },
-  plugins
-}
+  plugins,
+};
