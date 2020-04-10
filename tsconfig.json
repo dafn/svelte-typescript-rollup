@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "types": ["@pyoner/svelte-types"]
   },
   "include": [
     "src/**/*"
